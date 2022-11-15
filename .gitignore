@@ -1,0 +1,13 @@
+# ========= [ FOLDERS ] =========
+
+/assets
+/objects
+/tests
+
+# ========= [ FILES ] ===========
+
+*.o
+*.a
+*.md
+*.out
+
