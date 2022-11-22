@@ -2,7 +2,7 @@ LINKER			= gcc
 COMPILER		= $(LINKER) -c
 
 REMOVE			= rm
-REMOVE_FORCE	= $(REMOVE)-rf
+REMOVE_FORCE	= $(REMOVE) -rf
 MAKE_DIR		= mkdir -p
 DEBUG			= gdb -q -tui
 MEMCHECK		= valgrind
@@ -17,9 +17,11 @@ PATH_OBJECTS	= objects
 PATH_LIBRARIES	= libraries
 PATH_TESTS		= tests
 PATH_LIBFT		= $(PATH_LIBRARIES)/libft
+PATH_PRINTF		= $(PATH_LIBRARIES)/printf
 
 LIBFT			= $(PATH_LIBFT)/libft.a
-INCLUDES		= -I$(PATH_INCLUDES) -I$(PATH_LIBFT)
+PRINTF			= $(PATH_PRINTF)/libftprintf.a
+INCLUDES		= -I$(PATH_INCLUDES) -I$(PATH_LIBFT) -I$(PATH_PRINTF)
 
 run: all
 	./$(NAME)
