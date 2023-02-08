@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 18:17:37 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/04/29 10:01:52 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/02/01 08:03:09 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_list	*ft_lstnew(void *content)
 
 	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
-		return (0);
+		return (NULL);
 	new->content = content;
-	new->next = 0;
+	new->next = NULL;
 	return (new);
 }

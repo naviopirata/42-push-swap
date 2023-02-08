@@ -6,27 +6,28 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 16:19:50 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/04/29 13:26:08 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/02/01 08:35:17 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **list_src, void (*del)(void *))
 {
+	t_list	*list_cpy;
 	t_list	*aux;
-	t_list	*aft;
 
-	if (!lst || !del)
+	if (!list_src || !del)
 		return ;
-	aux = *lst;
-	while (aux)
+	list_cpy = *list_src;
+	while (list_cpy)
 	{
-		aft = aux->next;
-		del(aux->content);
-		free(aux);
-		aux = aft;
+		aux = list_cpy->next;
+		del(list_cpy->content);
+		free(list_cpy);
+		list_cpy = aux;
 	}
-	*lst = 0;
+	*list_src = NULL;
+	return ;
 }

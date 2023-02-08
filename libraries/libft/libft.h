@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:00:01 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/10/06 19:01:45 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/02/01 08:49:39 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stddef.h>
 # include <unistd.h>
-# include "get_next_line.h"
 
 typedef struct s_list
 {
@@ -63,14 +62,16 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
+// Linked List
 t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+t_list	*ft_lstlast(t_list *list_src);
+int		ft_lstsize(t_list *list_src);
 
+void	ft_lstadd_front(t_list **list_src, t_list *new);
+void	ft_lstadd_back(t_list **list_src, t_list *new);
+void	ft_lstclear(t_list **list_src, void (*del)(void *));
+void	ft_lstdelone(t_list *list_src, void (*del)(void *));
+
+t_list	*ft_lstmap(t_list *lst, void *(*func)(void *), void (*del)(void *));
+void	ft_lstiter(t_list *list_src, void (*func)(void *));
 #endif
