@@ -1,4 +1,28 @@
-include Makefile_setup
+LINKER			= gcc
+COMPILER		= $(LINKER) -c
+
+REMOVE			= rm
+REMOVE_FORCE	= $(REMOVE) -rf
+MAKE_DIR		= mkdir -p
+DEBUG			= gdb -q -tui
+MEMCHECK		= valgrind
+
+FLAG_C			= -Wall -Wextra -Werror
+FLAG_LEAK		= --leak-check=full --show-leak-kinds=all --track-origins=yes
+FLAG_LEAK		+= -s
+
+PATH_INCLUDES	= includes
+PATH_SOURCES	= sources
+PATH_OBJECTS	= objects
+PATH_LIBRARIES	= libraries
+PATH_TESTS		= tests
+PATH_LIBFT		= $(PATH_LIBRARIES)/libft
+PATH_PRINTF		= $(PATH_LIBRARIES)/printf
+
+LIBFT			= $(PATH_LIBFT)/libft.a
+PRINTF			= $(PATH_PRINTF)/libftprintf.a
+INCLUDES		= -I$(PATH_INCLUDES) -I$(PATH_LIBFT) -I$(PATH_PRINTF)
+
 
 NAME			= push_swap
 SOURCE			= $(addprefix $(PATH_SOURCES)/, $(FILE_SOURCES))
@@ -35,5 +59,17 @@ fclean: clean
 	@$(MAKE) -C $(PATH_PRINTF) fclean
 
 re: fclean all
+
+run: all
+	./$(NAME)
+
+debug: all
+	$(DEBUG) ./$(NAME)
+
+leak:
+	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME)
+
+test:
+	$(MAKE) -C $(PATH_TESTS) all
 
 .PHONY: all fclean clean re run leak test debug
