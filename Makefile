@@ -29,7 +29,7 @@ SOURCE			= $(addprefix $(PATH_SOURCES)/, $(FILE_SOURCES))
 FILE_HEADER		= $(PATH_INCLUDES)/push_swap.h
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCES)/%.c=$(PATH_OBJECTS)/%.o)
 
-FILE_SOURCES	= push_swap.c del.c push.c print_node.c # rotate.c rotate_rev.c rotate_sametime.c rotate_rev_sametime.c swap.c swap_sametime.c
+FILE_SOURCES	= push_swap.c del.c push.c print_node.c load_args.c # rotate.c rotate_rev.c rotate_sametime.c rotate_rev_sametime.c swap.c swap_sametime.c
 
 all: $(NAME)
 
