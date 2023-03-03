@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 22:08:56 by ddiniz            #+#    #+#             */
-/*   Updated: 2022/11/30 22:09:12 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/03/02 21:44:14 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	del(void *content)
 {
+	free(content);
 	content = NULL;
 	(void)content;
 	return ;
