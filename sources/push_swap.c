@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:13:23 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/03/01 19:20:25 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/03/02 22:26:09 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	main(int argc, char *argv[])
 {
+	t_list	*stack_a;
+
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
-	load_args(argc, argv);
+	stack_a = load_args(argc, argv);
+
+	ft_printf("Stack A: %c\n", 0);
+	ft_lstiter(stack_a, &print_node);
+
+	ft_lstclear(&stack_a, &del);
 	return (EXIT_SUCCESS);
 }
