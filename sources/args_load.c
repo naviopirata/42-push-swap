@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_args.c                                        :+:      :+:    :+:   */
+/*   args_load.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:46:04 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/03/02 22:25:31 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/03/03 22:19:57 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-t_list	*load_args(int max, char *vec[])
+t_list	*stack_load(t_list *list)
 {
-	t_cell	*aux[max];
+	return (list);
+}
+
+t_list	*args_load(int max, char *vec[])
+{
+	t_cell	*target[max];
+	t_cell	aux[max];
 	t_list	*list;
 	int		i;
 
 	list = NULL;
-
 	i = 0;
-	while (i < max - 1)
+	while (i < max - ARGCADJUST)
 	{
-		aux[i] = (t_cell *)malloc(sizeof(t_cell));
-		aux[i]->value = ft_atoi(vec[i + 1]);
-		aux[i]->index = i + 1;
-		ft_lstadd_back(&list, ft_lstnew(&aux[i]->value));
+		target[i] = (t_cell *)malloc(sizeof(t_cell));
+		target[i]->value = ft_atoi(vec[i + ARGCADJUST]);
+		target[i]->index = i + ARGCADJUST;
+		aux[i].value = target[i]->value;
+		aux[i].index = target[i]->index;
+		ft_lstadd_back(&list, ft_lstnew(&target[i]->value));
 		i++;
 	}
-	return (list);
+	(void)aux[0];
+	return (stack_load(list));
 }

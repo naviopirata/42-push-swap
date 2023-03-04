@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 17:15:19 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/03/02 22:25:52 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/03/03 18:52:59 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <libft.h>
 # include <ft_printf.h>
 # include <stdlib.h>
+
+# define ARGCADJUST 1
 
 typedef struct	s_cell {
 	int	value;
@@ -27,7 +29,7 @@ void	del(void *content);
 void	print_node(void *node);
 
 int	push(t_list **stack_source, t_list **stack_target);
-t_list	*load_args(int index, char *vec[]);
+t_list	*args_load(int index, char *vec[]);
 // int	swap(t_list *stack);
 // int	swap_all(t_list *stack_a, t_list *stack_b);
 // int	rotate(t_list *stack);
