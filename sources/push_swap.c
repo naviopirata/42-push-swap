@@ -18,7 +18,7 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
-	stack_a = args_load(argc, argv);
+	stack_a = stack_load(argc, argv);
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
