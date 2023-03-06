@@ -12,12 +12,12 @@
 
 #include <push_swap.h>
 
-int	aux_unload(t_cell *aux[], int max)
+static int	aux_unload(t_cell *aux[], int max)
 {
 	int	i;
 
 	i = 0;
-	while (i < max - 1)
+	while (i < max)
 	{
 		free(aux[i]);
 		i++;
@@ -25,9 +25,19 @@ int	aux_unload(t_cell *aux[], int max)
 	return (EXIT_SUCCESS);
 }
 
-// int	stack_index_fix(t_cell *aux[], t_cell *target[])
-int	stack_index_fix(void)
+static int	stack_index_fix(t_cell **src)
 {
+	// int	i;
+	// int	j;
+	//
+	// i = 0;
+	// j = 0;
+	// while (i < max)
+	// {
+	// }
+	ft_printf("here: %d\n", src[0]->value);
+	ft_printf("here: %d\n", src[1]->value);
+	
 	return (EXIT_SUCCESS);
 }
 
@@ -51,8 +61,7 @@ t_list	*stack_load(int max, char *vec[])
 		ft_lstadd_back(&list, ft_lstnew(&target[i]->value));
 		i++;
 	}
-	// stack_index_fix(aux, target);
-	stack_index_fix();
-	aux_unload(aux, max);
+	stack_index_fix(aux);
+	aux_unload(aux, max - 1);
 	return (list);
 }
