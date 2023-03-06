@@ -25,19 +25,34 @@ static int	aux_unload(t_cell *aux[], int max)
 	return (EXIT_SUCCESS);
 }
 
-static int	stack_index_fix(t_cell **src)
+static int	stack_index_fix(t_cell **src, int max)
 {
-	// int	i;
-	// int	j;
-	//
-	// i = 0;
-	// j = 0;
-	// while (i < max)
-	// {
-	// }
-	ft_printf("here: %d\n", src[0]->value);
-	ft_printf("here: %d\n", src[1]->value);
-	
+	int	i;
+	int	j;
+	int	aux;
+
+	i = 0;
+	while (i < max)
+	{
+		j = i + 1;
+		while(j <= max)
+		{
+			aux = i;
+			if (src[i]->value > src[j]->value)
+			{
+				src[i]->index = src[j]->index;
+				src[j]->index = aux;
+			}
+			j++;
+		}
+		i++;
+	}
+	i = 0;
+	while (i < max)
+	{
+		ft_printf("value: %d\nid: %d\n", src[i]->value, src[i]->index);
+		i++;
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -61,7 +76,7 @@ t_list	*stack_load(int max, char *vec[])
 		ft_lstadd_back(&list, ft_lstnew(&target[i]->value));
 		i++;
 	}
-	stack_index_fix(aux);
-	aux_unload(aux, max - 1);
+	stack_index_fix(aux, max - INDEXADJ);
+	aux_unload(aux, max - INDEXADJ);
 	return (list);
 }
