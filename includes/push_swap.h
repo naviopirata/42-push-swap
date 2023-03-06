@@ -17,7 +17,7 @@
 # include <ft_printf.h>
 # include <stdlib.h>
 
-# define ARGCADJUST 1
+# define INDEXADJ 1
 
 typedef struct	s_cell {
 	int	value;
@@ -29,7 +29,7 @@ void	del(void *content);
 void	print_node(void *node);
 
 int	push(t_list **stack_source, t_list **stack_target);
-t_list	*args_load(int index, char *vec[]);
+t_list	*stack_load(int index, char *vec[]);
 // int	swap(t_list *stack);
 // int	swap_all(t_list *stack_a, t_list *stack_b);
 // int	rotate(t_list *stack);

@@ -12,30 +12,56 @@
 
 #include <push_swap.h>
 
-t_list	*stack_load(t_list *list)
+static int	aux_unload(t_cell *aux[], int max)
 {
-	return (list);
+	int	i;
+
+	i = 0;
+	while (i < max)
+	{
+		free(aux[i]);
+		i++;
+	}
+	return (EXIT_SUCCESS);
 }
 
-t_list	*args_load(int max, char *vec[])
+static int	stack_index_fix(t_cell **src)
+{
+	// int	i;
+	// int	j;
+	//
+	// i = 0;
+	// j = 0;
+	// while (i < max)
+	// {
+	// }
+	ft_printf("here: %d\n", src[0]->value);
+	ft_printf("here: %d\n", src[1]->value);
+	
+	return (EXIT_SUCCESS);
+}
+
+t_list	*stack_load(int max, char *vec[])
 {
 	t_cell	*target[max];
-	t_cell	aux[max];
+	t_cell	*aux[max];
 	t_list	*list;
 	int		i;
 
 	list = NULL;
 	i = 0;
-	while (i < max - ARGCADJUST)
+	while (i < max - INDEXADJ)
 	{
 		target[i] = (t_cell *)malloc(sizeof(t_cell));
-		target[i]->value = ft_atoi(vec[i + ARGCADJUST]);
-		target[i]->index = i + ARGCADJUST;
-		aux[i].value = target[i]->value;
-		aux[i].index = target[i]->index;
+		aux[i] = (t_cell *)malloc(sizeof(t_cell));
+		target[i]->value = ft_atoi(vec[i + INDEXADJ]);
+		target[i]->index = i + INDEXADJ;
+		aux[i]->value = ft_atoi(vec[i + INDEXADJ]);
+		aux[i]->index = i + INDEXADJ;
 		ft_lstadd_back(&list, ft_lstnew(&target[i]->value));
 		i++;
 	}
-	(void)aux[0];
-	return (stack_load(list));
+	stack_index_fix(aux);
+	aux_unload(aux, max - 1);
+	return (list);
 }
