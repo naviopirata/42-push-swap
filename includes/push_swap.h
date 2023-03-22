@@ -30,6 +30,9 @@ void	print_node(void *node);
 
 int	push(t_list **stack_source, t_list **stack_target);
 t_list	*stack_load(int index, char *vec[]);
+int	*vec_load(int max, char *vec[]);
+int	vec_unload(t_cell *aux[], int max);
+void	quick_sort_vec(int *vec, int low, int high);
 // int	swap(t_list *stack);
 // int	swap_all(t_list *stack_a, t_list *stack_b);
 // int	rotate(t_list *stack);
