@@ -31,12 +31,11 @@ void	quick_sort_vec(int *vec, int low, int high)
 {
 	static int	part_index;
 
-	part_index = 0;
 	if (low < high)
 	{
 		part_index = partition_create(vec, low, high);
 		quick_sort_vec(vec, low, part_index - 1);
-		quick_sort_vec(vec, part_index - 1, high);
+		quick_sort_vec(vec, part_index + 1, high);
 
 	}
 	return ;

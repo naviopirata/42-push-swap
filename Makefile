@@ -7,7 +7,7 @@ MAKE_DIR		= mkdir -p
 DEBUG			= gdb -q -tui
 MEMCHECK		= valgrind
 
-FLAG_C			= -Wall -Wextra -Werror
+FLAG_C			= -g -Wall -Wextra -Werror
 FLAG_LEAK		= --leak-check=full --show-leak-kinds=all --track-origins=yes
 FLAG_LEAK		+= -s
 
@@ -29,7 +29,7 @@ SOURCE			= $(addprefix $(PATH_SOURCES)/, $(FILE_SOURCES))
 FILE_HEADER		= $(PATH_INCLUDES)/push_swap.h
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCES)/%.c=$(PATH_OBJECTS)/%.o)
 
-FILE_SOURCES	= push_swap.c del.c push.c print_node.c stack_load.c vec_load.c vec_unload.c quick_sort_vec.c # rotate.c rotate_rev.c rotate_sametime.c rotate_rev_sametime.c swap.c swap_sametime.c 
+FILE_SOURCES	= push_swap.c del.c push.c print_node.c stack_load.c vec_load.c quick_sort_vec.c # rotate.c rotate_rev.c rotate_sametime.c rotate_rev_sametime.c swap.c swap_sametime.c 
 		  
 
 all: $(NAME)

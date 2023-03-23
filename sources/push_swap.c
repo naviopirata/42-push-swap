@@ -41,7 +41,7 @@ int	main(int argc, char *argv[])
 	ft_lstclear(&stack_a, &del);
 	vec = vec_load(argc, argv);
 	vec_print(vec, argc - 1);
-	quick_sort_vec(vec, 0, argc - 1);
+	quick_sort_vec(vec, 0, argc - 2);
 	vec_print(vec, argc - 1);
 	free(vec);
 	
