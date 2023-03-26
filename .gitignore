@@ -2,7 +2,6 @@
 
 /assets
 /objects
-/tests
 
 # ========= [ FILES ] ===========
 
@@ -10,4 +9,6 @@
 *.a
 *.md
 *.out
+push_swap
+
 
