@@ -71,6 +71,6 @@ leak:
 	$(MEMCHECK) $(FLAG_LEAK) ./$(NAME)
 
 test:
-	$(MAKE) -C $(PATH_TESTS) all
+	$(MAKE) run -C $(PATH_TESTS) all
 
 .PHONY: all fclean clean re run leak test debug
