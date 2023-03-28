@@ -17,6 +17,19 @@ void	del(void *content);
 void	print_node(void *node);
 
 t_list	**push(t_list **stack_source, t_list **stack_target);
+int	pb(t_list **stack_source, t_list **stack_target);
+int	pa(t_list **stack_source, t_list **stack_target);
+
+int	swap(t_list **stack);
+int	sb(t_list **stack);
+int	sa(t_list **stack);
+int	ss(t_list **stack_a, t_list **stack_b);
+
+int	rotate(t_list **stack);
+int	ra(t_list **stack);
+int	rb(t_list **stack);
+int	rr(t_list **stack_a, t_list **stack_b);
+
 t_list	*stack_load(int index, char *vec[]);
 int	*vec_load(int max, char *vec[]);
 int	vec_unload(t_cell *aux[], int max);

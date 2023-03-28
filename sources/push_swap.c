@@ -23,6 +23,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	stack_a = stack_load(argc, argv);
 	stack_b = stack_load(argc, argv);
+	// stack_b = NULL;
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
@@ -30,11 +31,12 @@ int	main(int argc, char *argv[])
 	ft_printf("Stack B: %c\n", 0);
 	ft_lstiter(stack_b, &print_node);
 
-	push(&stack_a, &stack_b);
+	rr(&stack_a, &stack_b);
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
-	ft_printf("New stack B: %c\n", 0);
+
+	ft_printf("Stack B: %c\n", 0);
 	ft_lstiter(stack_b, &print_node);
 
 	ft_lstclear(&stack_a, &del);
