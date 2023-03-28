@@ -17,21 +17,28 @@ void	vec_print(int	*vec, int max)
 int	main(int argc, char *argv[])
 {
 	t_list	*stack_a;
-	int	*vec;
+	t_list	*stack_b;
 
 	if (argc <= 1)
 		return (EXIT_SUCCESS);
 	stack_a = stack_load(argc, argv);
+	stack_b = stack_load(argc, argv);
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
 
+	ft_printf("Stack B: %c\n", 0);
+	ft_lstiter(stack_b, &print_node);
+
+	push(&stack_a, &stack_b);
+
+	ft_printf("Stack A: %c\n", 0);
+	ft_lstiter(stack_a, &print_node);
+	ft_printf("New stack B: %c\n", 0);
+	ft_lstiter(stack_b, &print_node);
+
 	ft_lstclear(&stack_a, &del);
-	vec = vec_load(argc, argv);
-	vec_print(vec, argc - 1);
-	quick_sort_vec(vec, 0, argc - 2);
-	vec_print(vec, argc - 1);
-	free(vec);
+	ft_lstclear(&stack_b, &del);
 	
 	return (EXIT_SUCCESS);
 }

@@ -16,7 +16,7 @@ typedef struct	s_cell {
 void	del(void *content);
 void	print_node(void *node);
 
-int	push(t_list **stack_source, t_list **stack_target);
+t_list	**push(t_list **stack_source, t_list **stack_target);
 t_list	*stack_load(int index, char *vec[]);
 int	*vec_load(int max, char *vec[]);
 int	vec_unload(t_cell *aux[], int max);
