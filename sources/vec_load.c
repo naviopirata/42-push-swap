@@ -1,5 +1,19 @@
 #include <push_swap.h>
 
+void	vec_print(int	*vec, int max)
+{
+	int	i;
+
+	ft_printf("Vec: %c\n", 0);
+	i = 0;
+	while (i < max)
+	{
+		ft_printf("%d\n", vec[i]);
+		i++;
+	}
+	return ;
+}
+
 int	*vec_load(int max, char *vec[])
 {
 	int	*target;
