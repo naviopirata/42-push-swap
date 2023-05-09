@@ -12,10 +12,16 @@ typedef struct	s_cell {
 	int	index;
 } t_cell;
 
-// AUXILIAR METHODS
+/* AUXILIAR METHODS */
 void	del(void *content);
 void	print_node(void *node);
 
+/* VECTOR MODULES */
+int	*vec_load(int max, char *vec[]);
+int	vec_unload(t_cell *aux[], int max);
+void	vec_print(int	*vec, int max);
+
+/* PUSH SWAP MODULES */
 t_list	**push(t_list **stack_source, t_list **stack_target);
 int	pb(t_list **stack_source, t_list **stack_target);
 int	pa(t_list **stack_source, t_list **stack_target);
@@ -30,15 +36,10 @@ int	ra(t_list **stack);
 int	rb(t_list **stack);
 int	rr(t_list **stack_a, t_list **stack_b);
 
+/* QUICK SORT MODULES */
 t_list	*stack_load(int index, char *vec[]);
-int	*vec_load(int max, char *vec[]);
-int	vec_unload(t_cell *aux[], int max);
 void	quick_sort_vec(int *vec, int low, int high);
-// int	swap(t_list *stack);
-// int	swap_all(t_list *stack_a, t_list *stack_b);
-// int	rotate(t_list *stack);
-// int	rotate_all(t_list *stack_source, t_list *stack_target);
-// int	rotate_rev(t_list *stack);
-// int	rotate_rev_all(t_list *stack_source, t_list *stack_target);
+void	quick_sort(t_list *first, t_list *last);
+
 
 #endif

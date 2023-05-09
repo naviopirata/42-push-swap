@@ -1,18 +1,5 @@
 #include <push_swap.h>
 
-void	vec_print(int	*vec, int max)
-{
-	int	i;
-
-	ft_printf("Vec: %c\n", 0);
-	i = 0;
-	while (i < max)
-	{
-		ft_printf("%d\n", vec[i]);
-		i++;
-	}
-	return ;
-}
 
 int	main(int argc, char *argv[])
 {
@@ -23,21 +10,14 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	stack_a = stack_load(argc, argv);
 	stack_b = stack_load(argc, argv);
-	// stack_b = NULL;
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
 
-	ft_printf("Stack B: %c\n", 0);
-	ft_lstiter(stack_b, &print_node);
-
-	rr(&stack_a, &stack_b);
+	quick_sort(stack_a, ft_lstlast(stack_a));
 
 	ft_printf("Stack A: %c\n", 0);
 	ft_lstiter(stack_a, &print_node);
-
-	ft_printf("Stack B: %c\n", 0);
-	ft_lstiter(stack_b, &print_node);
 
 	ft_lstclear(&stack_a, &del);
 	ft_lstclear(&stack_b, &del);
