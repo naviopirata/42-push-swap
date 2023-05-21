@@ -1,9 +1,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <libft.h>
-# include <ft_printf.h>
-# include <stdlib.h>
+# include "../lib/libft.h"
 
 # define INDEXADJ 1
 
@@ -39,7 +37,7 @@ int	rr(t_list **stack_a, t_list **stack_b);
 /* QUICK SORT MODULES */
 t_list	*stack_load(int index, char *vec[]);
 void	quick_sort_vec(int *vec, int low, int high);
-void	quick_sort(t_list *first, t_list *last);
+void	quick_sort_like(t_list **stack_a); 
 
 
 #endif

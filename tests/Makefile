@@ -1,48 +1,59 @@
-NAME	= project_tests
+LINKER		= gcc
+COMPILER	= $(LINKER) -c
+FLAGS_C		= -Wall -Wextra -Werror
 
-HEADER	= $(shell ls . unity | grep .h$)
-SRCS	= $(shell ls . unity | grep .c$)
+REMOVE		= rm
+REMOVE_FORCE	= $(REMOVE) -rf
 
-PROJECT		= $(shell find ../objects -type f | grep .o$ | grep -v push_swap)
+ifdef GDB
+COMPILER	+= -g3
+endif
 
-LIBFT_PATH	= ../libraries/libft
-PRINTF_PATH	= ../libraries/printf
-LIBFT 	= $(LIBFT_PATH)/libft.a
-PRINTF	= $(PRINTF_PATH)/libftprintf.a
+# DIRECTORIES
+ROOT_DIR	= ..
+SRC_DIR		= $(ROOT_DIR)
+INCL_DIR	= $(ROOT_DIR)
+UNIT_DIR	= $(ROOT_DIR)/tests/Unity
 
-OBJ_DIR	= ./objects
-OBJS	= $(SRCS:%.c=$(OBJ_DIR)/%.o) $(PROJECT)
+UNIT_SRC_DIR	= $(UNIT_DIR)/src
+UNIT_FIXT_DIR	= $(UNIT_DIR)/extras/fixture/src
+UNIT_MEM_DIR	= $(UNIT_DIR)/extras/memory/src
 
-CFLAGS	= -Wall -Wextra -g3
-IFLAGS	= -I. -Iunity -I../includes -I$(LIBFT_PATH) -I$(PRINTF_PATH)
-LDFLAGS = -L$(LIBFT_PATH) -lft -L$(PRINTF_PATH) -lftprintf
+# FILES
+HEAD_FILE	= utest.h
+UNIT_SRC_HEAD	= $(UNIT_SRC_DIR)/unity.h
+UNIT_FIXT_HEAD	= $(UNIT_SRC_DIR)/unity_fixture.h
+INCL_PATH	= -I. -I$(INCL_DIR)/libft -I$(UNIT_SRC_DIR) -I$(UNIT_FIXT_DIR) -I$(UNIT_MEM_DIR) 
+SRC_FILE	= $(wildcard $(SRC_DIR)/*c)
+SRC_FILE	+= $(wildcard $(SRC_DIR)/tests/*c)
+OBJ_FILE	= $(SRC_FILE:%.c=%.o)
 
-
-VPATH	= unity
+UNIT_SRC_FILE	= $(UNIT_SRC_DIR)/unity.c 
+UNIT_FIXT_FILE	= $(UNIT_FIXT_DIR)/unity_fixture.c 
+ 
+NAME		= tester 
+# LIBFT		= ../libraries/libft/libft.a
 
 all: $(NAME)
 
+$(NAME): $(OBJ_FILE) $(HEAD_FILE)
+	$(LINKER) $(FLAGS_C) $(UNIT_SRC_FILE) $(UNIT_FIXT_FILE) $(OBJ_FILE) $(INCL_PATH) -o $@
+
+%.o: %.c $(HEAD_FILE)
+	$(COMPILER) $(INCL_PATH) $< -o $@
+
 clean:
-	rm -rf $(OBJ_DIR)
+	$(REMOVE_FORCE) $(OBJ_FILE)
 
 fclean: clean
-	rm -rf $(NAME)
+	$(REMOVE_FORCE) $(NAME)
 
-re:  fclean all
+re: fclean all
 
-$(NAME): $(OBJS) $(OBJ_DIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+debug:
+	gdb -tui -q $(NAME)
 
-$(OBJ_DIR)/%.o: %.c $(HEADER) Makefile | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $@
-
-run: all
+test: all clean
 	./$(NAME)
 
-val: all
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
-
-.PHONY:	all clean fclean re run
+.PHONY: all clean fclean re debug test
