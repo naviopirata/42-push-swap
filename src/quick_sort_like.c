@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../incl/push_swap.h"
 
 static void	swap_cells(t_list *nodea, t_list *nodeb)
 {

@@ -38,6 +38,8 @@ int	rr(t_list **stack_a, t_list **stack_b);
 t_list	*stack_load(int index, char *vec[]);
 void	quick_sort_vec(int *vec, int low, int high);
 void	quick_sort_like(t_list **stack_a); 
-
+int	*index_sort_vec(int argc, char **argv);
+void	index_sort_stack(int argc, char **argv, t_list *stack);
+t_list	*push_swap_sort(t_list	*stack_a, t_list *stack_b);
 
 #endif

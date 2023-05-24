@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 int	swap(t_list **stack)
 {

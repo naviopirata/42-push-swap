@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 static int	partition_create(int *vec, int low, int high)
 {

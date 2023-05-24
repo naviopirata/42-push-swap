@@ -1,19 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   print_node.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 08:05:25 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/02/08 08:18:13 by ddiniz           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 void	print_node(void *node)
 {
-	ft_printf("%d\n", ((t_cell *)node)->value);
+	ft_printf("%d %d\n", ((t_cell *)node)->value, ((t_cell *)node)->index);
 	return ;
 }

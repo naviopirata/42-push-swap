@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 void	del(void *content)
 {

@@ -10,16 +10,10 @@ int	main(int argc, char *argv[])
 	stack_a = stack_load(argc, argv);
 	stack_b = NULL;
 
-	ft_printf("Stack A: %c\n", 0);
-	ft_lstiter(stack_a, &print_node);
+	index_sort_stack(argc, argv, stack_a);
 
-//	quick_sort_like(&stack_a);
-
-	ft_printf("Stack A sorted: %c\n", 0);
-	ft_lstiter(stack_a, &print_node);
-
+	stack_a = push_swap_sort(stack_a, stack_b);
 	ft_lstclear(&stack_a, &del);
-	ft_lstclear(&stack_b, &del);
 	
 	return (EXIT_SUCCESS);
 }

@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 void	vec_print(int	*vec, int max)
 {

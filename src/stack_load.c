@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 t_list	*stack_load(int max, char *vec[])
 {

@@ -1,4 +1,4 @@
-#include <push_swap.h>
+#include "../incl/push_swap.h"
 
 t_list	**push(t_list **stack_source, t_list **stack_target)
 {
