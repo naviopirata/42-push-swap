@@ -9,6 +9,5 @@
 *.a
 *.md
 *.out
+*gdb
 push_swap
-
-

@@ -28,7 +28,7 @@ FILE_HEADER		= $(PATH_INCLUDES)/push_swap.h
 FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCES)/%.c=$(PATH_OBJECTS)/%.o)
 
 FILE_SOURCES	= push_swap.c del.c  print_node.c stack_load.c vec_load.c quick_sort_vec.c opt_push.c opt_swap.c opt_rotate.c \
-		  index_sort_vec.c index_sort_stack.c push_swap_sort.c #quick_sort_like.c
+		  index_sort_vec.c index_sort_stack.c push_swap_sort.c push_swap_init.c #quick_sort_like.c
 
 all: $(NAME)
 

@@ -1,0 +1,42 @@
+#display ((t_cell *)stack_a->content)->index
+
+# User defined Commands
+# REFRESH
+define rr      
+	refresh
+end           
+
+# DISPLAY
+define disp
+	display
+end
+
+define udisp
+	undisplay
+end
+
+define idisp
+	info display
+end
+
+define edisp
+	enable disp
+end
+
+define ddisp
+	disable disp
+end
+
+define udisp
+	undisplay
+end
+
+# ARGS
+define star
+	set args
+end
+
+define swar
+	show args
+end
+
