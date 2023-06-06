@@ -1,24 +1,43 @@
 #include "../incl/push_swap.h"
 
+static int	is_ordered(t_list *stack)
+{
+	t_list	*aux;
+
+	aux = stack;
+	while (aux) {
+		if (aux->next && (((t_cell *)aux->content)->index > ((t_cell *)aux->next->content)->index)) {
+			return (0);
+		}
+		aux = aux->next;
+	}
+	return (1);
+}
+
 t_list	*push_swap_sort(t_list	*stack_a, t_list *stack_b, int max)
 {
 	int	exp;
+	int	count;
 
 	exp = 1;
 	while ((max / exp) > 0) {
-		while (((t_cell *)stack_a->next->content)->index) {
-			if (((((t_cell *)stack_a->content)->index) / exp) % 10 > 
-				((((t_cell *)stack_a->next->content)->index) / exp) % 10) {
+		if (is_ordered(stack_a)) {
+			break;
+		}
+		count = max - 1;
+		while(count > 0) {
+			if ((((t_cell *)stack_a->content)->index / exp) % 10 < (((t_cell *)stack_a->next->content)->index / exp) % 10) {
 				sa(&stack_a);
-				break;
-			}
-			else if (((((t_cell *)stack_a->content)->index) / exp) % 10 > 
-					((((t_cell *)ft_lstlast(stack_a)->content)->index) / exp) % 10) {
-				ra(&stack_a);
-				break;
-			}
-			else 
 				pb(&stack_a, &stack_b);
+				count--;
+			}
+			else {
+				ra(&stack_a);
+				count--;
+			}
+		}
+		while (stack_b) {
+			pa(&stack_b, &stack_a);
 		}
 		exp *= 10;
 	}
