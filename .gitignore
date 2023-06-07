@@ -11,3 +11,4 @@
 *.out
 *gdb
 push_swap
+stack_quick_sort.c

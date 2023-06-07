@@ -1,6 +1,6 @@
 #include "../incl/push_swap.h"
 
-void	del(void *content)
+void	node_del(void *content)
 {
 	free(content);
 	content = NULL;

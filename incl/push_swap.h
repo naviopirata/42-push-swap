@@ -3,21 +3,28 @@
 
 # include "../lib/libft.h"
 
-# define INDEXADJ 1
-
 typedef struct	s_cell {
 	int	value;
-	int	index;
+	int	id;
 } t_cell;
 
 /* AUXILIAR METHODS */
-void	del(void *content);
-void	print_node(void *node);
+void	node_del(void *content);
+void	node_print(void *node);
+int	parseint(const char *str);
 
 /* VECTOR MODULES */
+int	*argv_load(int max, char *vec[]);
+int	*vec_sort(int argc, char **argv);
 int	*vec_load(int max, char *vec[]);
-int	vec_unload(t_cell *aux[], int max);
-void	vec_print(int	*vec, int max);
+void	vec_quick_sort(int *vec, int low, int high);
+
+/* PUSH SWAP MODULES */
+/* void	quick_sort_like(t_list **stack_a);  */
+t_list	*stack_load(int index, int *vec);
+void	stack_sort_id(int argc, int *vec, t_list *stack);
+int	pushswap_init(int argc, int *vec);
+t_list	*pushswap_sort(t_list	*stack_a, t_list *stack_b, int max);
 
 /* PUSH SWAP MODULES */
 t_list	**push(t_list **stack_source, t_list **stack_target);
@@ -33,14 +40,5 @@ int	rotate(t_list **stack);
 int	ra(t_list **stack);
 int	rb(t_list **stack);
 int	rr(t_list **stack_a, t_list **stack_b);
-
-/* QUICK SORT MODULES */
-t_list	*stack_load(int index, char *vec[]);
-void	quick_sort_vec(int *vec, int low, int high);
-void	quick_sort_like(t_list **stack_a); 
-int	*index_sort_vec(int argc, char **argv);
-void	index_sort_stack(int argc, char **argv, t_list *stack);
-int	push_swap_init(int argc, char **argv);
-t_list	*push_swap_sort(t_list	*stack_a, t_list *stack_b, int max);
 
 #endif

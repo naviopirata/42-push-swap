@@ -1,19 +1,19 @@
 #include "../incl/push_swap.h"
 
-t_list	*stack_load(int max, char *vec[])
+t_list	*stack_load(int max, int *vec)
 {
-	t_cell	*target[max];
+	t_cell	*node[max];
 	t_list	*list;
 	int		i;
 
 	list = NULL;
 	i = 0;
-	while (i < max - INDEXADJ)
+	while (i < max)
 	{
-		target[i] = (t_cell *)malloc(sizeof(t_cell));
-		target[i]->value = ft_atoi(vec[i + INDEXADJ]);
-		target[i]->index = i + INDEXADJ;
-		ft_lstadd_back(&list, ft_lstnew(&target[i]->value));
+		node[i] = (t_cell *)malloc(sizeof(t_cell));
+		node[i]->value = vec[i];
+		node[i]->id = i + 1;
+		ft_lstadd_back(&list, ft_lstnew(&node[i]->value));
 		i++;
 	}
 	return (list);

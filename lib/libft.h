@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
+# include <limits.h>
 
 // CONST
 # define BASE_HEX_UPP "0123456789ABCDEF"
