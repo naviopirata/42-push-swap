@@ -1,6 +1,6 @@
 #include "../incl/push_swap.h"
 
-void	stack_sort_id(int argc, int *vec, t_list *stack)
+void	stack_set_id(int argc, int *vec, t_list *stack)
 {
 	t_list	*aux;
 	int	i;

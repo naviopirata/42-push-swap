@@ -9,7 +9,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	arr = argv_load(argc, argv);
 	if (arr)
-		pushswap_init(argc, arr);
+		pushswap_init(argc, argv, arr);
 	free(arr);
 	return (EXIT_SUCCESS);
 }

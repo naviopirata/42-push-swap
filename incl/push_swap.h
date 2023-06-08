@@ -21,9 +21,9 @@ void	vec_quick_sort(int *vec, int low, int high);
 
 /* PUSH SWAP MODULES */
 /* void	quick_sort_like(t_list **stack_a);  */
-t_list	*stack_load(int index, int *vec);
-void	stack_sort_id(int argc, int *vec, t_list *stack);
-int	pushswap_init(int argc, int *vec);
+t_list	*stack_load(int index, char **argv);
+void	stack_set_id(int argc, int *vec, t_list *stack);
+int	pushswap_init(int argc, char **argv, int *vec);
 t_list	*pushswap_sort(t_list	*stack_a, t_list *stack_b, int max);
 
 /* PUSH SWAP MODULES */
