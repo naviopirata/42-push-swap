@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   argv_load.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 16:15:03 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/08 19:16:30 by ddiniz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incl/push_swap.h"
 
 static int	partition_create(int *vec, int low, int high)
@@ -10,9 +22,9 @@ static int	partition_create(int *vec, int low, int high)
 	pivot = vec[high];
 	j = (low - 1);
 	i = low;
-	while(i <= high - 1)
+	while (i <= high - 1)
 	{
-		if(vec[i] < pivot)
+		if (vec[i] < pivot)
 		{
 			j++;
 			aux = vec[i];
@@ -24,7 +36,7 @@ static int	partition_create(int *vec, int low, int high)
 	aux = vec[high];
 	vec[high] = vec[j + 1];
 	vec[j + 1] = aux;
-	return(j + 1);
+	return (j + 1);
 }
 
 void	vec_quick_sort(int *vec, int low, int high)
@@ -36,7 +48,6 @@ void	vec_quick_sort(int *vec, int low, int high)
 		part_index = partition_create(vec, low, high);
 		vec_quick_sort(vec, low, part_index - 1);
 		vec_quick_sort(vec, part_index + 1, high);
-
 	}
 	return ;
 }
@@ -44,10 +55,10 @@ void	vec_quick_sort(int *vec, int low, int high)
 int	*vec_load(int max, char *vec[])
 {
 	int	*arr;
-	int		i;
+	int	i;
 
 	i = 0;
-	arr = (int *)malloc((max - 1)*sizeof(int));
+	arr = (int *)malloc((max - 1) * sizeof(int));
 	while (i < max - 1)
 	{
 		arr[i] = ft_atoi(vec[i + 1]);
@@ -67,19 +78,22 @@ int	*vec_sort(int argc, char **argv)
 
 int	*argv_load(int max, char *vec[])
 {
-	int	i; 
+	int	i;
 	int	*arr;
-	
+
 	i = 0;
-	while (i < max - 1) {
+	while (i < max - 1)
+	{
 		if (!parseint(vec[i + 1]))
 			return (NULL);
 		i++;
 	}
 	arr = vec_sort(max, vec);
 	i = 0;
-	while (i < max - 1) {
-		if (arr[i] == arr[i + 1]) {
+	while (i < max - 2)
+	{
+		if (arr[i] == arr[i + 1])
+		{
 			ft_printf("dup: %d & %d", arr[i], arr[i + 1]);
 			free(arr);
 			return (NULL);

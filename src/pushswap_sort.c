@@ -1,90 +1,81 @@
 #include "../incl/push_swap.h"
-#include <unistd.h>
-#include <stdio.h>
 
-static void	print_stacks(t_list *stack_a, t_list *stack_b)
-{
-	t_list *auxa;
-	t_list *auxb;
+// static void	print_stacks(t_list *stack_a, t_list *stack_b)
+// {
+// 	t_list *auxa;
+// 	t_list *auxb;
+//
+// 	auxa = stack_a;
+// 	auxb = stack_b;
+// 	ft_printf("--- steps start ---\n");
+// 	while (auxa) {
+// 		if (auxa && auxb) {
+// 			ft_printf("%d\t%d\n", ((t_cell *)auxa->content)->id, ((t_cell *)auxb->content)->id);
+// 			auxa = auxa->next;
+// 			auxb = auxb->next;
+// 		}
+// 		else {
+// 			ft_printf("%d\t\n", ((t_cell *)auxa->content)->id);
+// 			auxa = auxa->next;
+// 		}
+// 	}
+// 	ft_printf("--- steps end ---\n");
+// 	return;
+// }
 
-	auxa = stack_a;
-	auxb = stack_b;
-	printf("--- steps start ---\n");
-	while (auxa) {
-		if (auxa && auxb) {
-			printf("%d\t%d\n", ((t_cell *)auxa->content)->id, ((t_cell *)auxb->content)->id);
-			auxa = auxa->next;
-			auxb = auxb->next;
-		}
-		else {
-			printf("%d\t\n", ((t_cell *)auxa->content)->id);
-			auxa = auxa->next;
-		}
-	}
-	printf("--- steps end ---\n");
-	return;
-}
-
-static int	is_ordered(t_list *stack)
+static int	is_ordered(t_list **stack)
 {
 	t_list	*aux;
+	t_cell	*node;
+	t_cell	*nodenext;
 
-	aux = stack;
-	while (aux) {
-		if (aux->next && (((t_cell *)aux->content)->id > ((t_cell *)aux->next->content)->id)) {
-			// ft_printf("%d > %d\n", ((t_cell *)aux->content)->id, ((t_cell *)aux->next->content)->id);
-			return (0);
+	aux = *stack;
+	while (aux)
+	{
+		if (aux->next) {
+			node = (t_cell *)aux->content;
+			nodenext = (t_cell *)aux->next->content;
+			if (node->value > nodenext->value) {
+				return (0);
+			}
 		}
 		aux = aux->next;
 	}
 	return (1);
 }
 
-t_list	*pushswap_sort(t_list	*stack_a, t_list *stack_b, int max)
+t_list	*pushswap_sort(t_list **stack_a, t_list **stack_b, int max)
 {
 	int	i;
 	int	j;
 
-	if (is_ordered(stack_a)) {
-		ft_printf("===== IT'S ORDERED! =====\n\n");
-		ft_printf("It is ordered!\n");
-		ft_lstiter(stack_a, &node_print);
-		ft_lstclear(&stack_a, &node_del);
-		ft_lstclear(&stack_b, &node_del);
-		return (NULL);
-	}
-	ft_printf("===== STACK A BEFORE =====\n\n");
-	ft_lstiter(stack_a, &node_print);
-	ft_printf("\n\n");
-	sleep(4);
-	ft_printf("===== STEP BY STEP =====\n\n");
 	i = 0;
 	while (!is_ordered(stack_a)) {
+	// while (i == 0) {
 		j = 0;
 		while((j < max) && !is_ordered(stack_a)) {
-			ft_lstiter(stack_a, &node_print);
-			if ((((t_cell *)stack_a->content)->id >> i) & 1) {
-				ra(&stack_a);
-				print_stacks(stack_a, stack_b);
+		// while(j < max) {
+			// ft_lstiter(stack_a, &node_print);
+			if ((((t_cell *)(*stack_a)->content)->id >> i) & 1) {
+				ra(stack_a);
+				// print_stacks(stack_a, stack_b);
 			}
 			else {
-				pb(&stack_a, &stack_b);
-				print_stacks(stack_a, stack_b);
+				pb(stack_a, stack_b);
+				// print_stacks(stack_a, stack_b);
 			}
 			j++;
-			sleep(1);
+			// sleep(1);
 		}
-		while (stack_b) {
-			pa(&stack_b, &stack_a);
-			print_stacks(stack_a, stack_b);
-			sleep(1);
+		while (*stack_b) {
+			pa(stack_b, stack_a);
+			// print_stacks(stack_a, stack_b);
+			// sleep(1);
 		}
 		i++;
 	}
 	ft_printf("Stack A after:\n");
-	ft_lstiter(stack_a, &node_print);
-	ft_lstclear(&stack_a, &node_del);
-	ft_lstclear(&stack_b, &node_del);
+	ft_lstiter(*stack_a, node_print);
 
 	return (NULL);
 }

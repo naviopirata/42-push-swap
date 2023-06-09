@@ -1,20 +1,37 @@
-#include "../incl/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_load.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/08 16:15:54 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/08 21:21:31 by ddiniz           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_list	*stack_load(int max, char **argv)
+#include "../incl/push_swap.h"
+#include <stdlib.h>
+
+t_cell	*create_tcell(int id, int value)
 {
-	t_cell	*node[max];
-	t_list	*list;
+	t_cell	*node;
+
+	node = (t_cell *)malloc(sizeof(t_cell));
+	node->value = value;
+	node->id = id;
+	return (node);
+}
+
+void	stack_load(int max, char **argv, t_list **stack)
+{
 	int		i;
 
-	list = NULL;
 	i = 0;
 	while (i < max)
 	{
-		node[i] = (t_cell *)malloc(sizeof(t_cell));
-		node[i]->value = ft_atoi(argv[i + 1]);
-		node[i]->id = i + 1;
-		ft_lstadd_back(&list, ft_lstnew(&node[i]->value));
+		ft_lstadd_back(stack, ft_lstnew(create_tcell(i + 1, ft_atoi(argv[i + 1]))));
 		i++;
 	}
-	return (list);
+	return ;
 }

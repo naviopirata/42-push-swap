@@ -29,7 +29,7 @@ FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCES)/%.c=$(PATH_OBJECTS)/%.o)
 
 FILE_SOURCES	= argv_load.c node_del.c node_print.c opt_push.c opt_rotate.c opt_swap.c \
 		  parseint.c pushswap.c pushswap_init.c pushswap_sort.c stack_load.c \
-		  stack_sort_id.c vec_quick_sort.c # stack_quick_sort.c
+		  stack_sort_id.c # stack_quick_sort.c
 
 all: $(NAME)
 
