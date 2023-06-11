@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_init.c                                    :+:      :+:    :+:   */
+/*   check_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 16:16:04 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 08:36:04 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/11 10:40:50 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 11:08:51 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
-#include <stdlib.h>
 
-int	pushswap_init(int argc, char **argv, int *vec)
+int	check_int(int max, char *vec[])
 {
-	t_list	*stack_a;
-	t_list	*stack_b;
+	int	i;
 
-	stack_a = NULL;
-	stack_b = NULL;
-	stack_load((argc - 1), argv, &stack_a);
-	stack_set_id(argc, vec, stack_a);
-	pushswap_sort(&stack_a, &stack_b, (argc - 1));
-	ft_lstclear(&stack_a, free);
-	return (EXIT_SUCCESS);
+	i = 0;
+	while (i < max - 1)
+	{
+		if (!parse_int(vec[i + 1]))
+			return (0);
+		i++;
+	}
+	return (1);
 }

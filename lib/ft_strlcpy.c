@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 20:34:58 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/05/21 13:05:38 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 14:14:42 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		*dst = '\0';
 	}
 	dst = save_dst;
-	// gnl dont use save_dst?
 	return (len_src);
 }

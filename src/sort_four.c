@@ -6,58 +6,44 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 00:38:39 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 01:18:39 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 14:24:32 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
-int	minor_pos(t_list **stack)
+static void	run_sort(t_list **stack_a, t_list **stack_b)
 {
-	int pos;
-	int i;
-	int minor;
-	t_list	*aux;
-
-	i = 1;
-	pos = 1;
-	minor = 1;
-	aux = *stack;
-	while (aux)
-	{
-		if (aux->next)
-		{
-			ft_printf("actual: %d\n", ((t_cell *)aux->content)->id);
-			if (((t_cell *)aux->content)->id > ((t_cell *)aux->next->content)->id)
-			{
-				ft_printf("minor: %d\n", minor);
-				if (((t_cell *)aux->content)->id <= minor)
-				{
-					minor = (((t_cell *)aux->next->content)->id);
-					pos = i + 1;
-					ft_printf("pos: %d\n", pos);
-				}
-			}
-		}
-		i++;
-		ft_printf("i: %d\n", i);
-		if (((t_cell *)aux->content)->id < minor)
-		{
-			minor = ((t_cell *)aux->content)->id;
-			pos = i;
-		}
-		aux = aux->next;
-	}
-	return (pos);
+	pb(stack_a, stack_b);
+	sort_three(stack_a);
+	pa(stack_b, stack_a);
+	return ;
 }
 
 void	sort_four(t_list **stack_a, t_list **stack_b)
 {
-	int pos;
+	int	pos;
 
-	ft_lstiter(*stack_a, node_print);
-	ft_lstiter(*stack_b, node_print);
 	pos = minor_pos(stack_a);
-	ft_printf("end: %d\n", pos);
+	if (pos == 1)
+		run_sort(stack_a, stack_b);
+	else if (pos == 2)
+	{
+		sa(stack_a);
+		run_sort(stack_a, stack_b);
+	}
+	else if (pos == 3)
+	{
+		rra(stack_a);
+		rra(stack_a);
+		run_sort(stack_a, stack_b);
+	}
+	else
+	{
+		rra(stack_a);
+		run_sort(stack_a, stack_b);
+	}
+	ft_lstiter(*stack_a, node_print);
+	ft_printf("\n");
 	return ;
 }

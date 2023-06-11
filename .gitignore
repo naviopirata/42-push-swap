@@ -11,4 +11,7 @@
 *.out
 *gdb
 push_swap
-stack_quick_sort.c
+src/.stack_quick_sort.c
+lib/.tests
+lib/*.md
+LICENSE

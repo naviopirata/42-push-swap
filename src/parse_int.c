@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parseint.c                                         :+:      :+:    :+:   */
+/*   parse_int.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:21 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 18:33:50 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 11:10:01 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static	long int	number_create(const char *str, int *digits)
 	return (number);
 }
 
-int	parseint(const char *str)
+int	parse_int(const char *str)
 {
 	long int	sign;
 	long int	number;

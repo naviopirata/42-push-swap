@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:15:03 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 09:05:58 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 11:05:16 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,18 +78,13 @@ int	*vec_sort(int argc, char **argv)
 
 int	*argv_load(int max, char *vec[])
 {
-	int	i;
 	int	*arr;
+	int	i;
 
-	i = 0;
-	while (i < max - 1)
+	if (!check_int(max, vec))
 	{
-		if (!parseint(vec[i + 1]))
-		{
-			ft_printf("Error\n");
-			return (NULL);
-		}
-		i++;
+		ft_printf("Error\n");
+		return (NULL);
 	}
 	arr = vec_sort(max, vec);
 	i = 0;
@@ -98,7 +93,6 @@ int	*argv_load(int max, char *vec[])
 		if (arr[i] == arr[i + 1])
 		{
 			ft_printf("Error\n");
-			free(arr);
 			return (NULL);
 		}
 		i++;

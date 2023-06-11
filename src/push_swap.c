@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:55 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 16:14:58 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 11:05:46 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 		return (EXIT_SUCCESS);
 	arr = argv_load(argc, argv);
 	if (arr)
-		pushswap_init(argc, argv, arr);
+		push_swap_init(argc, argv, arr);
 	free(arr);
 	return (EXIT_SUCCESS);
 }
