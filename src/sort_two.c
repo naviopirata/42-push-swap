@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   sort_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 23:01:28 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 15:52:39 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/11 00:02:04 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 00:02:23 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incl/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	sort_two(t_list **stack)
 {
-	t_list	*aux;
-	t_list	*last;
-
-	aux = lst;
-	last = lst;
-	while (aux)
-	{
-		last = aux;
-		aux = aux->next;
-	}
-	return (last);
+	if (is_ordered(stack))
+		return ;
+	sa(stack);
+	return ;
 }

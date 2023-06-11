@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   is_ordered.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 23:01:28 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 15:52:39 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/10 09:41:15 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/10 09:43:11 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incl/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	is_ordered(t_list **stack)
 {
 	t_list	*aux;
-	t_list	*last;
+	t_cell	*node;
+	t_cell	*nodenext;
 
-	aux = lst;
-	last = lst;
+	aux = *stack;
 	while (aux)
 	{
-		last = aux;
+		if (aux->next) {
+			node = (t_cell *)aux->content;
+			nodenext = (t_cell *)aux->next->content;
+			if (node->value > nodenext->value) {
+				return (0);
+			}
+		}
 		aux = aux->next;
 	}
-	return (last);
+	return (1);
 }

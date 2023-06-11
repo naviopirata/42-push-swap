@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 21:40:57 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/10 08:33:31 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ t_list	**push(t_list **stack_source, t_list **stack_target)
 	aux = (*stack_source)->next;
 	(*stack_source)->next = *stack_target;
 	*stack_target = *stack_source;
-	// aux->next = *stack_target;
 	*stack_source = aux;
 	return (stack_target);
 }

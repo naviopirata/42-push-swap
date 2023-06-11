@@ -21,7 +21,6 @@ PATH_LIBFT		= $(PATH_LIBRARIES)
 LIBFT			= $(PATH_LIBFT)/libft.a
 INCLUDES		= -I$(PATH_INCLUDES) -I$(PATH_LIBFT)
 
-
 NAME			= push_swap
 SOURCE			= $(addprefix $(PATH_SOURCES)/, $(FILE_SOURCES))
 FILE_HEADER		= $(PATH_INCLUDES)/push_swap.h
@@ -29,7 +28,8 @@ FILE_OBJECTS	= $(SOURCE:$(PATH_SOURCES)/%.c=$(PATH_OBJECTS)/%.o)
 
 FILE_SOURCES	= argv_load.c node_del.c node_print.c opt_push.c opt_rotate.c opt_swap.c \
 		  parseint.c pushswap.c pushswap_init.c pushswap_sort.c stack_load.c \
-		  stack_sort_id.c # stack_quick_sort.c
+		  stack_sort_id.c radix_sort.c small_sort.c is_ordered.c sort_two.c \
+		  sort_three.c sort_four.c sort_five.c # stack_quick_sort.c
 
 all: $(NAME)
 

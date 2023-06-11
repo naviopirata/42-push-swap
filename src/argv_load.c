@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:15:03 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 19:16:30 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/10 09:05:58 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,10 @@ int	*argv_load(int max, char *vec[])
 	while (i < max - 1)
 	{
 		if (!parseint(vec[i + 1]))
+		{
+			ft_printf("Error\n");
 			return (NULL);
+		}
 		i++;
 	}
 	arr = vec_sort(max, vec);
@@ -94,7 +97,7 @@ int	*argv_load(int max, char *vec[])
 	{
 		if (arr[i] == arr[i + 1])
 		{
-			ft_printf("dup: %d & %d", arr[i], arr[i + 1]);
+			ft_printf("Error\n");
 			free(arr);
 			return (NULL);
 		}

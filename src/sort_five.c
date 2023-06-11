@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 23:01:28 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 15:52:39 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/11 00:16:36 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 00:16:40 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incl/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	sort_five(void)
 {
-	t_list	*aux;
-	t_list	*last;
-
-	aux = lst;
-	last = lst;
-	while (aux)
-	{
-		last = aux;
-		aux = aux->next;
-	}
-	return (last);
+	return ;
 }

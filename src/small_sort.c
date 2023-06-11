@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 23:01:28 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 15:52:39 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/10 09:39:45 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 00:16:49 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../incl/push_swap.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	small_sort(t_list **stack_a, t_list **stack_b, int max)
 {
-	t_list	*aux;
-	t_list	*last;
-
-	aux = lst;
-	last = lst;
-	while (aux)
-	{
-		last = aux;
-		aux = aux->next;
-	}
-	return (last);
+	if (max == 2)
+		sort_two(stack_a);
+	else if (max == 3)
+		sort_three(stack_a);
+	else if (max == 4)
+		sort_four(stack_a, stack_b);
+	else
+		sort_five();
+	ft_lstiter(*stack_a, node_print);
+	ft_lstiter(*stack_b, node_print);
 }

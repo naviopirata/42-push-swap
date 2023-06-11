@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:15:54 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 21:21:31 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/10 08:41:07 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	stack_load(int max, char **argv, t_list **stack)
 	i = 0;
 	while (i < max)
 	{
-		ft_lstadd_back(stack, ft_lstnew(create_tcell(i + 1, ft_atoi(argv[i + 1]))));
+		ft_lstadd_back(
+			stack, ft_lstnew(create_tcell(i + 1, ft_atoi(argv[i + 1]))));
 		i++;
 	}
 	return ;

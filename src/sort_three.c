@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_sort.c                                    :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 09:39:34 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 23:57:36 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/11 00:04:36 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 00:04:38 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
-void	pushswap_sort(t_list **stack_a, t_list **stack_b, int max)
+void	sort_three(t_list **stack)
 {
-	if (max == 1)
+	t_cell	*one;
+	t_cell	*two;
+	t_cell	*three;
+
+	one = (t_cell *)(*stack)->content;
+	two = (t_cell *)(*stack)->next->content;
+	three = (t_cell *)(*stack)->next->next->content;
+	if (is_ordered(stack))
 		return ;
-	else if (max < 6)
+	if ((one->value > two->value) && (one->value < three->value))
+		sort_two(stack);
+	else if ((one->value < two->value) && (two->value > three->value))
 	{
-		small_sort(stack_a, stack_b, max);
-		return ;
+		rra(stack);
+		sort_two(stack);
 	}
-	radix_sort(stack_a, stack_b, max);
+	else
+	{
+		ra(stack);
+		sort_two(stack);
+	}
 	return ;
 }
