@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 00:38:39 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 14:24:32 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 16:52:30 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,5 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 		rra(stack_a);
 		run_sort(stack_a, stack_b);
 	}
-	ft_lstiter(*stack_a, node_print);
-	ft_printf("\n");
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:15:44 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 23:34:37 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 17:51:57 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ int	rotaterev(t_list **stack)
 
 int	ra(t_list **stack)
 {
-	if (!rotate(stack))
-		return (EXIT_FAILURE);
+	rotate(stack);
+	ft_printf("ra\n");
 	return (EXIT_SUCCESS);
 }
 
 int	rra(t_list **stack)
 {
-	if (!rotaterev(stack))
-		return (EXIT_FAILURE);
+	rotate(stack);
+	ft_printf("rra\n");
 	return (EXIT_SUCCESS);
 }

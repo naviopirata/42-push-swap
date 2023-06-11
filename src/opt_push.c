@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:00 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/10 08:33:31 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 18:07:13 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ t_list	**push(t_list **stack_source, t_list **stack_target)
 
 int	pa(t_list **stack_source, t_list **stack_target)
 {
-	if (!push(stack_source, stack_target))
-		return (EXIT_FAILURE);
+	push(stack_source, stack_target);
+	ft_printf("pa\n");
 	return (EXIT_SUCCESS);
 }
 
 int	pb(t_list **stack_source, t_list **stack_target)
 {
-	if (!push(stack_source, stack_target))
-		return (EXIT_FAILURE);
+	push(stack_source, stack_target);
+	ft_printf("pb\n");
 	return (EXIT_SUCCESS);
 }

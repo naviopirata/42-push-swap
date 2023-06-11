@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:14 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/08 16:55:51 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 18:02:28 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,14 @@ int	swap(t_list **stack)
 
 int	sb(t_list **stack)
 {
-	if (!swap(stack))
-		return (EXIT_FAILURE);
+	swap(stack);
+	ft_printf("sb\n");
 	return (EXIT_SUCCESS);
 }
 
 int	sa(t_list **stack)
 {
-	if (!swap(stack))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
-
-int	ss(t_list **stack_a, t_list **stack_b)
-{
-	sa(stack_a);
-	sb(stack_b);
+	swap(stack);
+	ft_printf("sa\n");
 	return (EXIT_SUCCESS);
 }

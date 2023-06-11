@@ -6,7 +6,7 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 09:37:44 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 10:35:59 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 16:54:37 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, int max)
 		while ((j < max) && !is_ordered(stack_a))
 		{
 			if ((((t_cell *)(*stack_a)->content)->id >> i) & 1)
-			{
 				ra(stack_a);
-			}
 			else
 				pb(stack_a, stack_b);
 			j++;
@@ -35,6 +33,5 @@ void	radix_sort(t_list **stack_a, t_list **stack_b, int max)
 			pa(stack_b, stack_a);
 		i++;
 	}
-	ft_lstiter(*stack_a, node_print);
 	return ;
 }
