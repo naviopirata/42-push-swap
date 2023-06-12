@@ -6,11 +6,22 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:14:21 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 11:10:01 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/12 01:18:26 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
+
+static int	has_alpha(const char *str)
+{
+	while (*str && str != NULL)
+	{
+		if ((int)*str < 48 || (int)*str > 57)
+			return (0);
+		str++;
+	}
+	return (1);
+}
 
 static	long int	number_create(const char *str, int *digits)
 {
@@ -41,6 +52,8 @@ int	parse_int(const char *str)
 			sign = -1;
 		if ((*str == 45) || (*str == 43))
 			str++;
+		if (!has_alpha(str))
+			return (0);
 		digits = 0;
 		number = number_create(str, &digits);
 		if (digits > 10)

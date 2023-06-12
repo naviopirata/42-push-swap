@@ -6,11 +6,12 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 16:15:03 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 11:05:16 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/12 01:22:14 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
+#include <stdlib.h>
 
 static int	partition_create(int *vec, int low, int high)
 {
@@ -93,6 +94,7 @@ int	*argv_load(int max, char *vec[])
 		if (arr[i] == arr[i + 1])
 		{
 			ft_printf("Error\n");
+			free(arr);
 			return (NULL);
 		}
 		i++;
