@@ -6,11 +6,12 @@
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 00:38:39 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 16:52:30 by ddiniz           ###   ########.fr       */
+/*   Updated: 2023/06/11 20:29:32 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
+#include <unistd.h>
 
 static void	run_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -25,6 +26,8 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 	int	pos;
 
 	pos = minor_pos(stack_a);
+	// ft_printf("pos: %d\n", pos);
+	// sleep(3);
 	if (pos == 1)
 		run_sort(stack_a, stack_b);
 	else if (pos == 2)
