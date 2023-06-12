@@ -5,13 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ddiniz <ddiniz@student.42sp.org.br>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 00:16:36 by ddiniz            #+#    #+#             */
-/*   Updated: 2023/06/11 16:52:42 by ddiniz           ###   ########.fr       */
+/*   Created: 2023/06/11 23:04:50 by ddiniz            #+#    #+#             */
+/*   Updated: 2023/06/11 23:28:52 by ddiniz           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
-#include <unistd.h>
 
 static void	run_sort(t_list **stack_a, t_list **stack_b)
 {
@@ -21,38 +20,29 @@ static void	run_sort(t_list **stack_a, t_list **stack_b)
 	return ;
 }
 
-void	rra_run_sort(t_list **stack_a, t_list **stack_b)
-{
-	rra(stack_a);
-	run_sort(stack_a, stack_b);
-	return ;
-}
-
 void	sort_five(t_list **stack_a, t_list **stack_b)
 {
-	int	pos;
+	t_cell	*one;
+	t_cell	*two;
+	t_cell	*three;
+	t_cell	*four;
+	t_cell	*five;
 
-	pos = minor_pos(stack_a);
-	if (pos == 1)
-		run_sort(stack_a, stack_b);
-	else if (pos == 2)
+	while (is_ordered(stack_a) == 0)
 	{
-		sa(stack_a);
-		run_sort(stack_a, stack_b);
+		one = (t_cell *)(*stack_a)->content;
+		two = (t_cell *)(*stack_a)->next->content;
+		three = (t_cell *)(*stack_a)->next->next->content;
+		four = (t_cell *)(*stack_a)->next->next->next->content;
+		five = (t_cell *)(*stack_a)->next->next->next->next->content;
+		if ((two->value < one->value) && (two->value < three->value))
+			sa(stack_a);
+		else if ((four->value < one->value) && (four->value < two->value))
+			rra(stack_a);
+		else if ((one->value > four->value) && (one->value > five->value))
+			ra(stack_a);
+		else
+			run_sort(stack_a, stack_b);
 	}
-	else if (pos == 3)
-	{
-		ra(stack_a);
-		ra(stack_a);
-		run_sort(stack_a, stack_b);
-	}
-	else if (pos == 4)
-	{
-		rra(stack_a);
-		rra(stack_a);
-		run_sort(stack_a, stack_b);
-	}
-	else
-		rra_run_sort(stack_a, stack_b);
 	return ;
 }
