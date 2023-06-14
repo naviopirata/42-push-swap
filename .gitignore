@@ -12,7 +12,7 @@
 *.a
 *.md
 *.out
-*gdb
+gdb*
 push_swap
 src/.stack_quick_sort.c
 lib/.tests
